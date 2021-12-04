@@ -12,30 +12,57 @@
 
   <body>
     <header>
-       <% if user_signed_in? %>
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
          <div class="container">
            <%= link_to "Bookers", root_path %>
            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-           aria-expanded="false" arialabel="Toggle navigation"></button>
+           aria-expanded="false" arialabel="Toggle navigation">
+             <span class="navbar-toggler-icon">
+             </span>
+           </button>
+           <% if user_signed_in? %>
            <div class="navbar-collapse collapse show" id="navbarNavDropdown" style>
+
              <ul class="navbar-nav ml-auto">
+
                <li>
                  <%= link_to "Home", root_path %>
                </li>
-             </ul>
+               <li>
+                 <%= link_to "Uers", root_path %>
+               </li>
+               <li>
+                 <%= link_to "Books", root_path %>
+               </li>
+               <li>
+                 <%=link_to "Log out", root_path %>
+               </li>
+               </ul>
+               <% else %>
+               <ul>
+                 <li>
+                   <%= link_to "Home", root_path %>
+                 </li>
+                 <li>
+                   <%= link_to "About", root_path %>
+                 </li>
+                 <li>
+                   <%= link_to "Sign up", new_user_registration_path %>
+                 </li>
+                 <li>
+                   <%= link_to "Log in", new_user_session_path %>
+                 </li>
+                 </ul>
+             <% end %>
            </div>
          </div>
        </nav>
-     <li>
-        <%= link_to 'Home', new_book_path %>
-      </li>
-      <li>
-        <%= link_to "About", destroy_user_session_path, method: :delete %>
-      </li>
+
+       <% if user_signed_in? %>
+
 
       <li>
-        <%= link_to "マイページ", user_path(current_user.id) %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
       <li>
@@ -45,7 +72,8 @@
         <%= link_to "ログイン", new_user_session_path %>
       </li>
     <% end %>
-    </header>
+
+
 
 
     <%= yield %>
