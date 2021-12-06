@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# DMM WEBCAMPコンテンツ【アプリケーションを作成しよう２】
+DMM WEBCAMPの学習コンテンツアプリケーションを作成しよう２の演習課題です。
+
