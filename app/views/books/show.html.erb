@@ -1,1 +1,27 @@
 <%= render "books/book", user: @user, book: @book %>
+   <div class="col-8 offset-md-1">
+                <h2>Book detail</h2>
+                <table class="table">
+                  <tbody>
+                      <tr>
+                        <td><%= attachment_image_tag @book_show.user, :profile_image, fallback: "no_image1.jpg"%></td>
+                        <td><%= link_to @book_show.title, book_path(@book_show.id) %></td>
+                        <td><%= @book_show.body %></td>
+                        <td><%= link_to "Edit", edit_book_path(@book_show.id), class: "btn btn-sm btn-success" %></td>
+                        <% if @book_show.user == current_user %>
+                        <td><%= link_to "destroy", book_path(@book_show), method: :delete,  class: "btn btn-sm btn-danger" %></td>
+                        <% end %>
+
+
+                      </tr>
+
+                  </tbody>
+                </table>
+
+            </div>
+        </div>
+      </div>
+    </main>
+
+  </body>
+  </html>
