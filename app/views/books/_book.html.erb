@@ -15,7 +15,14 @@
   </head>
   <body>
     <main>
-      <p id="notice">Welcome! You have signed up successfully.</p>
+      <div class="error-message">
+      <% if @book.errors.any? %>
+        <%= @book.errors.count %>error prohibited this obj from being saved:
+        <% @book.errors.full_messages.each do |message| %>
+          <%= message %>
+        <% end %>
+      <% end %> 
+      
       <div class="containar px-5 px sm-0">
         <div class="row">
           <div class="col-md-3">
@@ -30,7 +37,7 @@
                 </tr>
                 <tr>
                   <th>introduction</th>
-                  <th></th>
+                  <th><%= user.introduction %></th>
                 </tr>
               </tbody>
             </table>

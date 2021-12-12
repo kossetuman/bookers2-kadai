@@ -1,1 +1,43 @@
-<h1>kk</h1>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"> <!-- 追加 -->
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+  <body>
+    <main>
+      <p id="notice"></p>
+        <div class="containar">
+          <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+              <h2>User info</h2>
+                <%= form_with model:@user, local:true do |f| %>
+                <div class="form-group mt-3">
+                  <label for="user_name">Name</label>
+                    <div class="form-controll name"><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%></div>
+                </div>
+                <div class="form-group">
+                  <label for="user_image">Image</label>
+                    <div class="form-controll-file user_image"> <%= f.attachment_field :profile_image %></div>
+                </div>
+                <div class="form-group">
+                  <label for="user_introduction">Introduction</label>
+                  <div class="form-controll introduction"><%= f.text_area :introduction %></div>
+                </div>
+                    <%= f.submit "Update User", class: "btn btn-secondary" %>
+                <% end %>
+            </div>
+          </div>
+        </div>
+    </main>
+  </body>
+  </html>

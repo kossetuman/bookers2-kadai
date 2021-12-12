@@ -5,55 +5,54 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>layouts/application.html</title>
-
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <!--FontAwesome-->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
-
-
-
   <body>
       <header class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <nav class = "nav navbar-brand">
-           　  <%= link_to "Bookers", root_path %>
+              <%= link_to "Bookers", root_path %>
             </nav>
             <ul class = "nav navbar-navbar-right">
                 <% if user_signed_in? %>
-                    <li>
-                      <%= link_to "Home", root_path %>
+                    <li class="navbar-text">
+                      <%= link_to "Home", user_path(current_user.id), class: "fas fa-home" %>
                     </li>
-                    <li>
-                      <%= link_to "Uers", users_path %>
+                    <li class="navbar-text">
+                      <%= link_to "Uers", users_path, class: "fas fa-users" %>
                     </li>
-                    <li>
-                      <%= link_to "Books", root_path %>
+                    <li class="navbar-text">
+                      <%= link_to "Books", books_path, class: "fas fa-book-open" %>
                     </li>
-                    <li>
-                      <%=link_to "Log out", destroy_user_session_path, method: :delete %>
+                    <li class="navbar-text">
+                      <%=link_to "Log out", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt" %>
                     </li>
                 <% else %>
-                    <li>
-                       <%= link_to "Home", root_path %>
+                    <li class="navbar-text">
+                       <%= link_to "Home", root_path, class: "fas fa-home" %>
                     </li>
-                    <li>
-                       <%= link_to "About", about_path %>
+                    <li class="navbar-text">
+                       <%= link_to "About", about_path, class: "fas fa-link" %>
                     </li>
-                    <li>
-                       <%= link_to "Sign up", new_user_registration_path %>
+                    <li class="navbar-text">
+                       <%= link_to "Sign up", new_user_registration_path, class: "fas fa-user-plus" %>
                     </li>
-                    <li>
-                       <%= link_to "Log in", new_user_session_path %>
+                    <li class="navbar-text">
+                       <%= link_to "Log in", new_user_session_path, class: "fas fa-sign-in-alt" %>
                     </li>
                  <% end %>
             </ul>
         </div>
       </header>
+      <main>
+
+      </main>
 
       <%= yield %>
       <footer>
