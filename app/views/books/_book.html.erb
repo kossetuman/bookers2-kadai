@@ -17,12 +17,14 @@
     <main>
       <div class="error-message">
       <% if @book.errors.any? %>
-        <%= @book.errors.count %>error prohibited this obj from being saved:
+        <h3><%= @book.errors.count %> error prohibited this obj from being saved:</h3>
         <% @book.errors.full_messages.each do |message| %>
-          <%= message %>
+          <ul>
+            <li><%= message %></li>
+          </ul>
         <% end %>
-      <% end %> 
-      
+      <% end %>
+      </div>
       <div class="containar px-5 px sm-0">
         <div class="row">
           <div class="col-md-3">
