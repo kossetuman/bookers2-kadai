@@ -1,20 +1,4 @@
-<html>
-  <head>
-    <title>Bookers2</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"> <!-- 追加 -->
 
-    <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-  </head>
-  <body>
-    <main>
       <p id="notice"></p>
       <div class="containar">
         <div class="row">
@@ -37,19 +21,15 @@
             </div>
             <div class="form-group">
               <label for="book_opinion">Opinion</label>
-               　<div><%= f.text_area :body %></div>
+               　<div><%= f.text_area :body %></d
             </div>
             <div class="form-group">
-              <%= f.submit "Update", class: "btn btn-success" %>
+              <%= f.submit "Update Book", class: "btn btn-success" %>
             </div>
            <% end %>
-           <%= link_to "show", book_path(@book.id) %>
+           <%= link_to "Show", book_path(@book.id) %>
            |
            <%= link_to "Back", books_path %>
           </div>
         </div>
       </div>
-    </main>
-  </body>
-
-  </html>

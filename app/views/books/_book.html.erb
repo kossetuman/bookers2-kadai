@@ -1,20 +1,4 @@
-<html>
-  <head>
-    <title>Bookers2</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"> <!-- 追加 -->
 
-    <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-  </head>
-  <body>
-    <main>
       <div class="error-message">
       <% if @book.errors.any? %>
         <h3><%= @book.errors.count %> error prohibited this obj from being saved:</h3>
@@ -25,7 +9,6 @@
         <% end %>
       <% end %>
       </div>
-      <div class="containar px-5 px sm-0">
         <div class="row">
           <div class="col-md-3">
             <h2>User info</h2>
@@ -61,8 +44,6 @@
               </div>
               <div class="form-group">
                 <%= f.submit "Create Book", class: "btn btn-success btn-sm btn-block mb-3" %>
-                </div>
-              </div>
+         </div>
+       </div>
               <% end %>
-              </body>
-              </html>

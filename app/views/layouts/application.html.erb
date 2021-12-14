@@ -17,7 +17,7 @@
       <header class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <nav class = "nav navbar-brand">
-              <%= link_to "Bookers", root_path %>
+              <%= link_to "Bookers", root_path, class: "text-white" %>
             </nav>
             <ul class = "nav navbar-navbar-right">
                 <% if user_signed_in? %>
@@ -25,20 +25,20 @@
                       <%= link_to "Home", user_path(current_user.id), class: "fas fa-home" %>
                     </li>
                     <li class="navbar-text">
-                      <%= link_to "Uers", users_path, class: "fas fa-users" %>
+                      <%= link_to "Users", users_path, class: "fas fa-users ml-3" %>
                     </li>
                     <li class="navbar-text">
-                      <%= link_to "Books", books_path, class: "fas fa-book-open" %>
+                      <%= link_to "Books", books_path, class: "fas fa-book-open ml-3" %>
                     </li>
                     <li class="navbar-text">
-                      <%=link_to "Log out", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt" %>
+                      <%=link_to "Log out", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt ml-3" %>
                     </li>
                 <% else %>
                     <li class="navbar-text">
                        <%= link_to "Home", root_path, class: "fas fa-home" %>
                     </li>
                     <li class="navbar-text">
-                       <%= link_to "About", about_path, class: "fas fa-link" %>
+                       <%= link_to "About", home_about_path, class: "fas fa-link" %>
                     </li>
                     <li class="navbar-text">
                        <%= link_to "Sign up", new_user_registration_path, class: "fas fa-user-plus" %>

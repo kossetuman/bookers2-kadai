@@ -1,29 +1,25 @@
-<%= render 'users/user' %>
-<%= render "books/book", user: @user, book: @book %>
-   <div class="col-8 offset-md-1">
+<div class="container px-5 px-sm-0">
+  <%= render 'users/user' %>
+    <%= render "books/book", user: @user, book: @book %>
+      <div class="col-md-8 offset-md-1">
                 <h2>Book detail</h2>
                 <table class="table">
                   <tbody>
                       <tr>
-                        <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
-                        <%= link_to @user.name, user_path(@user.id) %>
+                        <td>
+                          <%= link_to user_path(@user.id) do %>
+                            <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+                              <div><%= @user.name %></div>
+                          <% end %>
+                        </td>
                         <td><%= link_to @book_show.title, book_path(@book_show.id) %></td>
                         <td><%= @book_show.body %></td>
                         <% if @book_show.user == current_user %>
                         <td><%= link_to "Edit", edit_book_path(@book_show.id), class: "btn btn-sm btn-success" %></td>
-                        <% end %>
-                        <% if @book_show.user == current_user %>
-                        <td><%= link_to "destroy", book_path(@book_show), method: :delete, data: {confirm: '本当に削除しますか？'},  class: "btn btn-sm btn-danger" %></td>
+                        <td><%= link_to "Destroy", book_path(@book_show), method: :delete, data: {confirm: '本当に削除しますか？'},  class: "btn btn-sm btn-danger" %></td>
                         <% end %>
                       </tr>
-
                   </tbody>
                 </table>
-
-            </div>
-        </div>
       </div>
-    </main>
-
-  </body>
-  </html>
+ </div>
